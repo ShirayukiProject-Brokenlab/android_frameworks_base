@@ -103,9 +103,10 @@ class GameSpaceManager @Inject constructor(
             addFlags(Intent.FLAG_RECEIVER_REPLACE_PENDING
                 or Intent.FLAG_RECEIVER_FOREGROUND
                 or Intent.FLAG_RECEIVER_INCLUDE_BACKGROUND)
-            context.sendBroadcastAsUser(this, UserHandle.SYSTEM)
+            context.sendBroadcastAsUser(this, UserHandle.SYSTEM,
+                android.Manifest.permission.MANAGE_GAME_MODE)
         }
-    }
+    }   
 
     fun observe() {
         val taskStackChangeListeners = TaskStackChangeListeners.getInstance();
